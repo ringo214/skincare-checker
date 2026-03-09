@@ -133,7 +133,8 @@ input:checked + .slider:before { transform: translateX(26px); }
 .disclaimer-section {
     margin-top: 60px;
     padding: 30px 20px;
-    background: rgba(255, 255, 255, 0.5); /* ほんのり透ける白 */
+    background: rgba(255, 255, 255, 0.3); /* ほんのり透ける白 */
+    border-radius: 24px; /* アプリの雰囲気に合わせて丸く */
     border-top: 1px solid var(--glass-border);
     text-align: left; /* 注意書きは左寄せが読みやすい */
 }
@@ -160,4 +161,5 @@ input:checked + .slider:before { transform: translateX(26px); }
     margin-top: 20px;
     font-size: 0.7rem;
     color: #bbb;
+
 }
