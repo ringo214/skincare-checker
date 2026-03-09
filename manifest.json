@@ -1,0 +1,15 @@
+{
+  "name": "Skincare Checker",
+  "short_name": "Skincare",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f9f5f2",
+  "theme_color": "#ffd1dc",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
