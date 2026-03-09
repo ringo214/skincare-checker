@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Checker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="background-blobs"></div>
+    
+    <main class="container">
+        <header>
+            <h1>Skincare Checker</h1>
+            <p>成分で導く、今の肌への最適解。</p>
+        </header>
+
+        <div class="mode-switch-container">
+            <span class="mode-label">AM</span>
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle">
+                <span class="slider round"></span>
+            </label>
+            <span class="mode-label">PM</span>
+        </div>
+
+        <div id="filter-container" class="filter-wrapper"></div>
+
+        <div id="ingredient-grid" class="grid"></div>
+
+        <div id="result-container" class="result-card hidden">
+            <div class="card-actions">
+                <button id="save-image-btn" class="icon-btn">📸 保存</button>
+                <button id="deep-dive-btn" class="icon-btn">❓ 解説</button>
+            </div>
+            <div id="result-status" class="status-badge"></div>
+            <h2 id="result-title" class="result-main-title"></h2>
+            
+            <div class="chart-wrapper">
+                <canvas id="compatibilityChart"></canvas>
+            </div>
+            
+            <div id="concern-tags" class="tag-container"></div>
+            <p id="result-detail"></p>
+            
+            <div id="deep-dive-content" class="deep-info hidden"></div>
+            
+            <button id="add-routine-btn" class="save-routine-btn">今日のルーティンに保存</button>
+        </div>
+
+        <section class="history-section">
+            <h3>My Routine History (Last 8 days)</h3>
+            <div id="routine-history" class="history-grid"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+<footer class="disclaimer-section">
+    <div class="disclaimer-content">
+        <p><strong>【ご利用上の注意】</strong></p>
+        <ul>
+            <li>当サイトで提供する情報は、成分の一般的な性質と相性に基づくものであり、効果を保証するものではありません。</li>
+            <li>肌質や体調により個人差があります。新しい成分を試す際は、必ずパッチテストを行ってください。</li>
+            <li>肌に異常を感じた場合は直ちに使用を中止し、皮膚科専門医等にご相談ください。</li>
+            <li>当サイトの利用により生じたトラブルについて、開発者は一切の責任を負いかねます。</li>
+        </ul>
+        <p class="copyright">&copy; 2026 Skincare Checker</p>
+    </div>
+</footer>
+
+</html>
