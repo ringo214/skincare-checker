@@ -3,26 +3,29 @@
 // ==========================================
 
 const ingredients = [
+    // 注目トレンド成分（HOTバッジ付き）5選
+    { id: 'spicule', name: 'スピキュール', texture: 'water', time: 2, scores: { moisture: 30, brightening: 50, antiAging: 75, barrier: 40 }, concerns: ['texture', 'pore'], info: '天然の微細針（話題の「リードルショット」などの主成分）。美容成分の通り道を作り、浸透を劇的に助けます。', isTrend: true },
     { id: 'pdrn', name: 'PDRN', texture: 'water', time: 0, scores: { moisture: 70, brightening: 30, antiAging: 95, barrier: 85 }, concerns: ['aging', 'barrier', 'texture'], info: 'サーモン由来の再生成分。肌の修復力を高め、内側からパンッとしたハリを与えます。', isTrend: true },
     { id: 'gluta', name: 'グルタチオン', texture: 'water', time: 0, scores: { moisture: 40, brightening: 100, antiAging: 50, barrier: 30 }, concerns: ['brightening'], info: '「白玉点滴」の主成分。強力な抗酸化作用で、くすみを飛ばして透明感を底上げします。', isTrend: true },
-    { id: 'spicule', name: 'スピキュール', texture: 'water', time: 2, scores: { moisture: 30, brightening: 50, antiAging: 75, barrier: 40 }, concerns: ['texture', 'pore'], info: '天然の微細針（話題の「リードルショット」などの主成分）。肌にチクチクとした刺激を与え、美容成分の通り道を作ることで浸透を劇的に助けます。', isTrend: true },
     { id: 'exosome', name: 'エクソソーム', texture: 'water', time: 0, scores: { moisture: 65, brightening: 45, antiAging: 100, barrier: 90 }, concerns: ['aging', 'barrier', 'texture'], info: '細胞伝達を担う次世代成分。肌の自己再生能力を呼び覚ます、エイジングケアの決定版。', isTrend: true },
-    { id: 'azelaic', name: 'アゼライン酸', texture: 'water', time: 0, scores: { moisture: 20, brightening: 60, antiAging: 30, barrier: 45 }, concerns: ['acne', 'pore'], info: '皮脂トラブルや赤みに強い味方。ニキビ跡や肌のざらつきが気になる方に。', isTrend: true },
-    { id: 'retinol', name: 'レチノール', texture: 'oil', time: 2, scores: { moisture: 25, brightening: 45, antiAging: 95, barrier: 15 }, concerns: ['wrinkle', 'aging', 'texture'], info: 'ビタミンA。ターンオーバーを促進し、小じわやキメにアプローチ。夜専用です。' },
-    { id: 'vitC', name: 'ビタミンC', texture: 'water', time: 1, scores: { moisture: 35, brightening: 90, antiAging: 55, barrier: 25 }, concerns: ['brightening', 'pore', 'texture'], info: '鮮度の高いピュアビタミン。毛穴を引き締め、紫外線ダメージをブロックします。' },
-    { id: 'niacin', name: 'ナイアシン', texture: 'water', time: 0, scores: { moisture: 65, brightening: 65, antiAging: 60, barrier: 75 }, concerns: ['wrinkle', 'brightening', 'barrier'], info: 'シワ改善と美白のマルチプレイヤー。バリア機能を助けるので、守りのケアにも。' },
-    { id: 'ceramide', name: 'セラミド', texture: 'oil', time: 0, scores: { moisture: 85, brightening: 10, antiAging: 35, barrier: 100 }, concerns: ['barrier', 'moisture'], info: '肌のバリアを支える必須成分。乾燥から守り、ゆらぎにくい強い肌を作ります。' },
+    { id: 'bakuchi', name: 'バクチオール', texture: 'oil', time: 0, scores: { moisture: 45, brightening: 35, antiAging: 80, barrier: 55 }, concerns: ['aging', 'wrinkle'], info: '次世代レチノールとも呼ばれる植物由来成分。低刺激で朝も使えるエイジングケアの注目株。', isTrend: true },
+
+    // 定番・実力派成分 15選
+    { id: 'retinol', name: 'レチノール', texture: 'oil', time: 2, scores: { moisture: 25, brightening: 45, antiAging: 95, barrier: 15 }, concerns: ['wrinkle', 'aging', 'texture'], info: 'ビタミンA。ターンオーバーを促進し、小じわやキメにアプローチ。紫外線に弱いため夜専用です。' },
+    { id: 'vitC', name: 'ビタミンC', texture: 'water', time: 1, scores: { moisture: 35, brightening: 90, antiAging: 55, barrier: 25 }, concerns: ['brightening', 'pore', 'texture'], info: 'ピュアビタミン。毛穴を引き締め、朝使うことで紫外線ダメージから肌を守ります。' },
+    { id: 'niacin', name: 'ナイアシンアミド', texture: 'water', time: 0, scores: { moisture: 65, brightening: 65, antiAging: 60, barrier: 75 }, concerns: ['wrinkle', 'brightening', 'barrier'], info: 'シワ改善と美白のマルチプレイヤー。他の成分とも合わせやすい万能成分です。' },
+    { id: 'ceramide', name: 'セラミド', texture: 'oil', time: 0, scores: { moisture: 85, brightening: 10, antiAging: 35, barrier: 100 }, concerns: ['barrier', 'moisture'], info: '肌のバリアを支える必須成分。スキンケアの最後に蓋をして、ゆらぎにくい肌を作ります。' },
     { id: 'hyalur', name: 'ヒアルロン酸', texture: 'water', time: 0, scores: { moisture: 100, brightening: 15, antiAging: 25, barrier: 55 }, concerns: ['moisture'], info: '圧倒的な保水力。インナードライを解消し、一日中みずみずしい肌をキープ。' },
     { id: 'cica', name: 'CICA', texture: 'water', time: 0, scores: { moisture: 55, brightening: 25, antiAging: 25, barrier: 85 }, concerns: ['acne', 'barrier'], info: 'ツボクサエキス。赤みや炎症を鎮め、肌荒れを防ぐお守り成分です。' },
-    { id: 'tranex', name: 'トラネキサム酸', texture: 'water', time: 0, scores: { moisture: 45, brightening: 85, antiAging: 25, barrier: 45 }, concerns: ['brightening', 'acne'], info: 'シミや肝斑の予防に。炎症を抑えながら、透明感のあるトーンへ整えます。' },
-    { id: 'pept', name: 'ペプチド', texture: 'water', time: 0, scores: { moisture: 55, brightening: 25, antiAging: 85, barrier: 45 }, concerns: ['wrinkle', 'aging'], info: '肌の構成成分にアプローチ。塗るボトックスとも呼ばれ、ハリと弾力を高めます。' },
+    { id: 'tranex', name: 'トラネキサム酸', texture: 'water', time: 0, scores: { moisture: 45, brightening: 85, antiAging: 25, barrier: 45 }, concerns: ['brightening', 'acne'], info: '抗炎症作用と美白。シミ予防だけでなく、肌荒れが気になる時の強い味方。' },
+    { id: 'pept', name: 'ペプチド', texture: 'water', time: 0, scores: { moisture: 55, brightening: 25, antiAging: 85, barrier: 45 }, concerns: ['wrinkle', 'aging'], info: '「塗るボトックス」とも呼ばれる成分。肌にピンとしたハリと弾力を与えます。' },
     { id: 'panthe', name: 'パンテノール', texture: 'water', time: 0, scores: { moisture: 75, brightening: 20, antiAging: 30, barrier: 95 }, concerns: ['barrier', 'moisture'], info: 'プロビタミンB5。肌を修復し、水分保持能力を高める「潤いのバリア」です。' },
-    { id: 'bakuchi', name: 'バクチオール', texture: 'oil', time: 0, scores: { moisture: 45, brightening: 35, antiAging: 80, barrier: 55 }, concerns: ['aging', 'wrinkle'], info: '次世代レチノール。低刺激で日中も使えるため、敏感肌の方のエイジングケアに。' },
+    { id: 'azelaic', name: 'アゼライン酸', texture: 'water', time: 0, scores: { moisture: 20, brightening: 60, antiAging: 30, barrier: 45 }, concerns: ['acne', 'pore'], info: '皮脂詰まりや赤みにアプローチ。海外でも人気のニキビ・毛穴ケア成分。' },
     { id: 'galacto', name: 'ガラクトミセス', texture: 'water', time: 0, scores: { moisture: 65, brightening: 55, antiAging: 45, barrier: 55 }, concerns: ['texture', 'brightening'], info: '天然酵母由来。キメを整え、肌トーンを均一に。毛穴の目立たないツヤ肌へ。' },
-    { id: 'collagen', name: 'コラーゲン', texture: 'water', time: 0, scores: { moisture: 75, brightening: 15, antiAging: 65, barrier: 35 }, concerns: ['wrinkle', 'moisture'], info: '低分子コラーゲン。肌密度を高め、ふっくらとした若々しい印象を作ります。' },
+    { id: 'collagen', name: 'コラーゲン', texture: 'water', time: 0, scores: { moisture: 75, brightening: 15, antiAging: 65, barrier: 35 }, concerns: ['wrinkle', 'moisture'], info: '保湿とハリの定番。肌密度を高め、ふっくらとした若々しい印象を作ります。' },
     { id: 'bifida', name: 'ビフィズス菌', texture: 'water', time: 0, scores: { moisture: 70, brightening: 40, antiAging: 55, barrier: 80 }, concerns: ['barrier', 'texture'], info: '発酵成分。肌の常在菌バランスを整え、外的刺激に負けない健康な肌へ。' },
     { id: 'salicyl', name: 'サリチル酸', texture: 'water', time: 2, scores: { moisture: 15, brightening: 45, antiAging: 25, barrier: 15 }, concerns: ['pore', 'acne'], info: 'BHAの一種。毛穴の奥の皮脂汚れを取り除き、イチゴ鼻やニキビを防ぎます。' },
-    { id: 'proteo', name: 'プロテオグリカン', texture: 'water', time: 0, scores: { moisture: 95, brightening: 30, antiAging: 70, barrier: 60 }, concerns: ['moisture', 'aging'], info: 'ヒアルロン酸を超える保水力。ぷるんとしたハリと潤いを長時間持続させます。' }
+    { id: 'glycyr', name: 'グリチルリチン酸2K', texture: 'water', time: 0, scores: { moisture: 30, brightening: 20, antiAging: 10, barrier: 70 }, concerns: ['acne', 'barrier'], info: '甘草由来の強力な抗炎症成分。赤みや肌荒れを落ち着かせる薬用成分の代表格。' }
 ];
 
 const concernLabels = { wrinkle: 'シワ', aging: 'ハリ', texture: 'キメ', brightening: '美白', pore: '毛穴', acne: '肌荒れ', moisture: '乾燥', barrier: 'バリア' };
